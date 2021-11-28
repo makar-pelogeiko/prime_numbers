@@ -7,7 +7,8 @@ class Mt:
     :raise Exception("BAD DELTA ELEMENT")
     """
     def __init__(self):
-        self.alpabet = set()
+        self.alphabet = set()
+        self.alphabet_spec = set()
         self.memory_step = {'>', '<', '.'}
         self.states = set()
         self.start_state = None
@@ -32,9 +33,16 @@ class Mt:
 
             if flag == 'alphabet':
                 if line == '####':
+                    flag = 'spec_alphabet'
+                    continue
+                obj.alphabet.add(line)
+                continue
+
+            if flag == 'spec_alphabet':
+                if line == '####':
                     flag = 'states'
                     continue
-                obj.alpabet.add(line)
+                obj.alphabet_spec.add(line)
                 continue
 
             if flag == 'states':
@@ -64,8 +72,8 @@ class Mt:
                     continue
                 delta_ln = line.split(' ')
 
-                if not (delta_ln[0] in obj.states and delta_ln[1] in obj.alpabet and
-                        delta_ln[2] in obj.states and delta_ln[3] in obj.alpabet and
+                if not (delta_ln[0] in obj.states and delta_ln[1] in obj.alphabet and
+                        delta_ln[2] in obj.states and delta_ln[3] in obj.alphabet and
                         delta_ln[4] in obj.memory_step):
                     print("Bad delta")
                     raise Exception("BAD DELTA ELEMENT")
