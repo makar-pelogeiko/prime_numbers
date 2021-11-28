@@ -22,10 +22,10 @@ def grammar_creation(path_to_mt_config: str, word: int) -> str:
 
 if __name__ == "__main__":
     for i in range(0, 25):
-        res = is_prime_number("Mt_config.txt", i)
+        res = is_prime_number("Results\\Mt_config.txt", i)
         print(f"input: {i}, result: {res}")
         if res:
-            gram_str = grammar_creation("Mt_config.txt", i)
+            gram_str = grammar_creation("Results\\Mt_config.txt", i)
             print(f"result of Grammar works: '{gram_str}'")
 
     print("End of code")

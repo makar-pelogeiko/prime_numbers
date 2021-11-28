@@ -1,4 +1,3 @@
-from typing import Set, Tuple, Dict, List
 from DoubleLinkedList import DLinkedList as dList
 
 
@@ -82,7 +81,7 @@ class Mt:
                 continue
         return obj
 
-    def set_word(self, word: List[str]):
+    def set_word(self, word):
         self.tape = dList(def_value='B')
         if len(word) == 0:
             return

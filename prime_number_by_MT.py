@@ -12,6 +12,6 @@ def is_prime_number(path_to_mt_config:str, word:int) -> bool:
 
 if __name__ == "__main__":
     for i in range(0, 25):
-        res = is_prime_number("Mt_config.txt", i)
+        res = is_prime_number("Results\\Mt_config.txt", i)
         print(f"input: {i}, result: {res}")
     print("end of code")
